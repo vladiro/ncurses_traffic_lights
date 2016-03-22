@@ -1,6 +1,6 @@
-## ncurses Traffic Lights
+# ncurses Traffic Lights
 
-#Introduction
+##Introduction
 
 Just an interesting project serving as an excuse to learn ncurses that I have
 been meaning to do for a long time.
