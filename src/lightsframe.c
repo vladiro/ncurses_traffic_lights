@@ -4,18 +4,21 @@
 #define LEFT_MARGIN 35
 #define RIGHT_MARGIN 42
 
+static const char* TOP_BOTTOM = "XXXXXXXXX";
+static const char* SIDES = "XX";
+
 #define LIGHTS_FRAME 37
 
-void DrawLightsFrame()
+void DrawSignalInit()
 {
-    const char* TOP_BOTTOM = "XXXXXXXXX";
-    const char* SIDES = "XX";
-
     mvprintw(1, 24, "Traffic Lights Using NCurses");
     mvprintw(3, 24, "'q' to quit.");
 
     start_color();
+}
 
+void DrawLightsFrame()
+{
     init_pair(1, COLOR_BLACK, COLOR_YELLOW);
 
     attron(COLOR_PAIR(1));
@@ -48,7 +51,7 @@ void DrawLightsFrame()
     attroff(COLOR_PAIR(1));
 }
 
-void DrawPedestrianLightsFrame()
+void DrawSignalLights()
 {
     const char* LIGHTS_SPECULAR = "*****";
 
@@ -79,6 +82,9 @@ void DrawPedestrianLightsFrame()
     mvprintw(16, LIGHTS_FRAME, LIGHTS_SPECULAR);
 
     attroff(COLOR_PAIR(4));
+}
 
+void DrawSignalRefresh()
+{
     refresh();
 }
