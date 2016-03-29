@@ -4,6 +4,7 @@
 void DrawSignalInit();
 void DrawLightsFrame();
 void DrawSignalLights();
+void DrawPedestrianLightsFrame();
 void DrawSignalRefresh();
 
 #endif

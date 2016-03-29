@@ -7,9 +7,14 @@ int main()
     noecho();
     curs_set(FALSE);
 
+    /* Main signal */
     DrawSignalInit();
     DrawLightsFrame();
     DrawSignalLights();
+
+    /* Pedestrian signal */
+    DrawPedestrianLightsFrame();
+
     DrawSignalRefresh();
 
     while(getchar() != 'q');
