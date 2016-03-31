@@ -3,10 +3,10 @@
 
 #define LIGHTS_FRAME 37
 #define LEFT_MARGIN 35
-#define RIGHT_MARGIN 42
+#define RIGHT_MARGIN 52
 #define PED_LEFT_MARGIN 21
 
-static const char* TOP_BOTTOM = "XXXXXXXXX";
+static const char* TOP_BOTTOM = "XXXXXXXXXXXXXXXXXXX";
 static const char* SIDES = "XX";
 
 static const char* PEDESTRIAN_TOP_BOTTOM = "XXXXXXXXXXXXXX";
@@ -15,13 +15,12 @@ static const char* PEDESTRIAN_SIDE = "XX";
 void DrawSignalInit()
 {
     mvprintw(1, 20, "Traffic Lights Using NCurses");
-    mvprintw(3, 20, "'q' to quit.");
+    mvprintw(3, 20, "Esc to quit.");
 
     start_color();
 
     init_pair(1, COLOR_BLACK, COLOR_YELLOW);
     init_pair(2, COLOR_BLACK, COLOR_RED);
-    init_pair(3, COLOR_BLACK, COLOR_YELLOW);
     init_pair(4, COLOR_BLACK, COLOR_GREEN);
 }
 
@@ -69,13 +68,13 @@ void DrawSignalLights()
 
     attroff(COLOR_PAIR(2));
 
-    attron(COLOR_PAIR(3));
+    attron(COLOR_PAIR(1));
 
     mvprintw(10, LIGHTS_FRAME, LIGHTS_SPECULAR);
     mvprintw(11, LIGHTS_FRAME, LIGHTS_SPECULAR);
     mvprintw(12, LIGHTS_FRAME, LIGHTS_SPECULAR);
 
-    attroff(COLOR_PAIR(3));
+    attroff(COLOR_PAIR(1));
 
     attron(COLOR_PAIR(4));
 
@@ -88,15 +87,17 @@ void DrawSignalLights()
 
 void DrawPedestrianLightsFrame()
 {
+    unsigned int idx;
+
     attron(COLOR_PAIR(1));
 
     mvprintw(10, PED_LEFT_MARGIN, PEDESTRIAN_TOP_BOTTOM);
-    mvprintw(11, PED_LEFT_MARGIN, PEDESTRIAN_SIDE);
-    mvprintw(12, PED_LEFT_MARGIN, PEDESTRIAN_SIDE);
-    mvprintw(13, PED_LEFT_MARGIN, PEDESTRIAN_SIDE);
-    mvprintw(14, PED_LEFT_MARGIN, PEDESTRIAN_SIDE);
-    mvprintw(15, PED_LEFT_MARGIN, PEDESTRIAN_SIDE);
-    mvprintw(16, PED_LEFT_MARGIN, PEDESTRIAN_SIDE);
+
+    for(idx = 11; idx < 17; idx++)
+    {
+        mvprintw(idx, PED_LEFT_MARGIN, PEDESTRIAN_SIDE);
+    }
+
     mvprintw(17, PED_LEFT_MARGIN, PEDESTRIAN_TOP_BOTTOM);
 
     attroff(COLOR_PAIR(1));

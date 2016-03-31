@@ -17,7 +17,7 @@ int main()
 
     DrawSignalRefresh();
 
-    while(getchar() != 'q');
+    while(getchar() != 0x1b);
 
     endwin();
 
