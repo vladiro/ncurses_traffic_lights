@@ -1,5 +1,6 @@
 #include <commonincs.h>
 #include <lightsframe.h>
+#include <lightsimages.h>
 
 int main()
 {
@@ -14,6 +15,10 @@ int main()
 
     /* Pedestrian signal */
     DrawPedestrianLightsFrame();
+
+    /* Draw countdown digits. */
+    DrawDigit(0, 19, 27);
+    DrawDigit(0, 27, 27);
 
     DrawSignalRefresh();
 
