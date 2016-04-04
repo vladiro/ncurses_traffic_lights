@@ -18,7 +18,7 @@ int main()
 
     /* Draw countdown digits. */
     DrawDigit(1, 19, 27);
-    DrawDigit(3, 27, 27);
+    DrawDigit(9, 27, 27);
 
     DrawSignalRefresh();
 

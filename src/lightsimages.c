@@ -76,22 +76,121 @@ int DrawDigit(const unsigned int DIGIT, const unsigned int XDISP, const unsigned
 
             break;
         case 4:
+            mvprintw(YDISP, XDISP, SIDE_BAR);
+            mvprintw(YDISP, XDISP + 5, SIDE_BAR);
+
+            for(idx = 0; idx < 3; idx++)
+            {
+                mvprintw(YDISP + idx, XDISP, SIDE_BAR);
+                mvprintw(YDISP + idx, XDISP + 5, SIDE_BAR);
+            }
+
+            mvprintw(YDISP + idx, XDISP, HORIZONTAL_BAR);
+
+            for(; idx < 6; idx++)
+            {
+                mvprintw(YDISP + idx, XDISP + 5, SIDE_BAR);
+            }
+
+            mvprintw(YDISP + idx, XDISP + 5, SIDE_BAR);
+
             rtn = 4;
+
             break;
         case 5:
+            mvprintw(YDISP, XDISP, HORIZONTAL_BAR);
+
+            for(idx = 0; idx < 3; idx++)
+            {
+                mvprintw(YDISP + idx, XDISP, SIDE_BAR);
+            }
+
+            mvprintw(YDISP + idx, XDISP, HORIZONTAL_BAR);
+
+            for(; idx < 6; idx++)
+            {
+                mvprintw(YDISP + idx, XDISP + 5, SIDE_BAR);
+            }
+
+            mvprintw(YDISP + idx, XDISP, HORIZONTAL_BAR);
+
             rtn = 5;
+
             break;
         case 6:
+            mvprintw(YDISP, XDISP, HORIZONTAL_BAR);
+
+            for(idx = 0; idx < 3; idx++)
+            {
+                mvprintw(YDISP + idx, XDISP, SIDE_BAR);
+            }
+
+            mvprintw(YDISP + idx, XDISP, HORIZONTAL_BAR);
+
+            for(; idx < 6; idx++)
+            {
+                mvprintw(YDISP + idx, XDISP, SIDE_BAR);
+                mvprintw(YDISP + idx, XDISP + 5, SIDE_BAR);
+            }
+
+            mvprintw(YDISP + idx, XDISP, HORIZONTAL_BAR);
+
             rtn = 6;
+
             break;
         case 7:
+            mvprintw(YDISP, XDISP, HORIZONTAL_BAR);
+
+            for(idx = 0; idx < 7; idx++)
+            {
+                mvprintw(YDISP + idx, XDISP + 5, SIDE_BAR);
+            }
+
             rtn = 7;
+
             break;
         case 8:
+            mvprintw(YDISP, XDISP, HORIZONTAL_BAR);
+
+            for(idx = 0; idx < 3; idx++)
+            {
+                mvprintw(YDISP + idx, XDISP, SIDE_BAR);
+                mvprintw(YDISP + idx, XDISP + 5, SIDE_BAR);
+            }
+
+            mvprintw(YDISP + idx, XDISP, HORIZONTAL_BAR);
+
+            for(; idx < 6; idx++)
+            {
+                mvprintw(YDISP + idx, XDISP, SIDE_BAR);
+                mvprintw(YDISP + idx, XDISP + 5, SIDE_BAR);
+            }
+
+            mvprintw(YDISP + idx, XDISP, HORIZONTAL_BAR);
+
             rtn = 8;
+
             break;
         case 9:
+            mvprintw(YDISP, XDISP, HORIZONTAL_BAR);
+
+            for(idx = 0; idx < 3; idx++)
+            {
+                mvprintw(YDISP + idx, XDISP, SIDE_BAR);
+                mvprintw(YDISP + idx, XDISP + 5, SIDE_BAR);
+            }
+
+            mvprintw(YDISP + idx, XDISP, HORIZONTAL_BAR);
+
+            for(; idx < 6; idx++)
+            {
+                mvprintw(YDISP + idx, XDISP + 5, SIDE_BAR);
+            }
+
+            mvprintw(YDISP + idx, XDISP, HORIZONTAL_BAR);
+
             rtn = 9;
+            
             break;
         default:
             rtn = -1;
