@@ -17,8 +17,8 @@ int main()
     DrawPedestrianLightsFrame();
 
     /* Draw countdown digits. */
-    DrawDigit(0, 19, 27);
-    DrawDigit(0, 27, 27);
+    DrawDigit(1, 19, 27);
+    DrawDigit(3, 27, 27);
 
     DrawSignalRefresh();
 
