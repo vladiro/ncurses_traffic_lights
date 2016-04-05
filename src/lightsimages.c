@@ -190,7 +190,7 @@ int DrawDigit(const unsigned int DIGIT, const unsigned int XDISP, const unsigned
             mvprintw(YDISP + idx, XDISP, HORIZONTAL_BAR);
 
             rtn = 9;
-            
+
             break;
         default:
             rtn = -1;
@@ -200,4 +200,14 @@ int DrawDigit(const unsigned int DIGIT, const unsigned int XDISP, const unsigned
     attroff(COLOR_PAIR(2));
 
     return rtn;
+}
+
+void DrawStopHand(const unsigned int XDISP, const unsigned int YDISP)
+{
+
+}
+
+void DrawWalkingMan(const unsigned int XDISP, const unsigned int YDISP)
+{
+
 }
