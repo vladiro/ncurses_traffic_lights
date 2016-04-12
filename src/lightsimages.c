@@ -204,10 +204,23 @@ int DrawDigit(const unsigned int DIGIT, const unsigned int XDISP, const unsigned
 
 void DrawStopHand(const unsigned int XDISP, const unsigned int YDISP)
 {
+    int idx;
 
+    attron(COLOR_PAIR(2));
+
+    for(idx = 0; idx < 7; idx++)
+    {
+        mvprintw(YDISP + idx, XDISP, SIDE_BAR);
+    }
+
+    attroff(COLOR_PAIR(2));
 }
 
 void DrawWalkingMan(const unsigned int XDISP, const unsigned int YDISP)
 {
+    attron(COLOR_PAIR(3));
 
+
+
+    attroff(COLOR_PAIR(3));
 }
