@@ -17,7 +17,7 @@ int main()
     DrawPedestrianLightsFrame();
 
     /* Draw hand or running man */
-    DrawStopHand(26, 17);
+    DrawPedestrianSignal(1, 23, 17);
 
     /* Draw countdown digits. */
     DrawDigit(1, 19, 27);

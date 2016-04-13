@@ -203,29 +203,26 @@ int DrawDigit(const unsigned int DIGIT, const unsigned int XDISP, const unsigned
     return rtn;
 }
 
-void DrawStopHand(const unsigned int XDISP, const unsigned int YDISP)
+void DrawPedestrianSignal(unsigned int SIGNAL, const unsigned int XDISP, const unsigned int YDISP)
 {
     unsigned int idx;
     const unsigned int UPPER_BOUND = 7;
 
-    attron(COLOR_PAIR(2));
+    if(SIGNAL == 0)
+        attron(COLOR_PAIR(2)); /* Red. */
+    else if(SIGNAL == 1)
+        attron(COLOR_PAIR(3)); /* Green */
 
+    /* If green should be a walking man, and if red should be a hand. My art skill has made them blocks! :D */
     for(idx = 0; idx < UPPER_BOUND; idx++)
     {
-        mvprintw(YDISP + idx, XDISP, SIDE_BAR);
-
-        /* Draw palm. */
-        if(idx > UPPER_BOUND - 3)
-        {
-            for(int i = 1; i < 5; i++)
-            {
-                mvprintw(YDISP + idx, XDISP - i, SIDE_BAR);
-                mvprintw(YDISP + idx, XDISP + i, SIDE_BAR);
-            }
-        }
+        mvprintw(YDISP + idx, XDISP, HORIZONTAL_BAR);
     }
 
-    attroff(COLOR_PAIR(2));
+    if(SIGNAL == 0)
+        attroff(COLOR_PAIR(2));
+    else if(SIGNAL == 1)
+        attroff(COLOR_PAIR(3));
 }
 
 void DrawWalkingMan(const unsigned int XDISP, const unsigned int YDISP)
