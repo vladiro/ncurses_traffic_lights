@@ -224,12 +224,3 @@ void DrawPedestrianSignal(unsigned int SIGNAL, const unsigned int XDISP, const u
     else if(SIGNAL == 1)
         attroff(COLOR_PAIR(3));
 }
-
-void DrawWalkingMan(const unsigned int XDISP, const unsigned int YDISP)
-{
-    attron(COLOR_PAIR(3));
-
-
-
-    attroff(COLOR_PAIR(3));
-}
