@@ -6,7 +6,8 @@ static const char* SIDE_BAR = "o";
 
 int DrawDigit(const unsigned int DIGIT, const unsigned int XDISP, const unsigned int YDISP)
 {
-    int rtn, idx;
+    int rtn;
+    unsigned int idx;
 
     attron(COLOR_PAIR(2));
 
@@ -204,13 +205,24 @@ int DrawDigit(const unsigned int DIGIT, const unsigned int XDISP, const unsigned
 
 void DrawStopHand(const unsigned int XDISP, const unsigned int YDISP)
 {
-    int idx;
+    unsigned int idx;
+    const unsigned int UPPER_BOUND = 7;
 
     attron(COLOR_PAIR(2));
 
-    for(idx = 0; idx < 7; idx++)
+    for(idx = 0; idx < UPPER_BOUND; idx++)
     {
         mvprintw(YDISP + idx, XDISP, SIDE_BAR);
+
+        /* Draw palm. */
+        if(idx > UPPER_BOUND - 3)
+        {
+            for(int i = 1; i < 5; i++)
+            {
+                mvprintw(YDISP + idx, XDISP - i, SIDE_BAR);
+                mvprintw(YDISP + idx, XDISP + i, SIDE_BAR);
+            }
+        }
     }
 
     attroff(COLOR_PAIR(2));
