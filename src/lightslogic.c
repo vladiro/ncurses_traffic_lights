@@ -13,32 +13,32 @@ int SystemIsReset()
     return 0;
 }
 
-void SetStatusRed()
+static void SetStatusRed()
 {
     systemStatus |= SHIFTLEFT(2);
 }
 
-void SetStatusAmber()
+static void SetStatusAmber()
 {
     systemStatus |= SHIFTLEFT(1);
 }
 
-void SetStatusGreen()
+static void SetStatusGreen()
 {
     systemStatus |= SHIFTLEFT(0);
 }
 
-void ClearStatusRed()
+static void ClearStatusRed()
 {
     systemStatus &= ~SHIFTLEFT(2);
 }
 
-void ClearStatusAmber()
+static void ClearStatusAmber()
 {
     systemStatus &= ~SHIFTLEFT(1);
 }
 
-void ClearStatusGreen()
+static void ClearStatusGreen()
 {
     systemStatus &= ~SHIFTLEFT(0);
 }
@@ -67,7 +67,20 @@ int GetStatusGreen()
     return 0;
 }
 
-int LightsCycled()
+int LightsCycle(unsigned int state)
 {
+    switch(state)
+    {
+        case 0:
+            ClearStatusAmber();
+            ClearStatusGreen();
+
+            SetStatusRed();
+
+            break;
+        case 1:
+            break;
+    }
+
     return 0;
 }

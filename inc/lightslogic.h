@@ -2,15 +2,9 @@
 #define _SIGNAL_LOGIC_
 
 int SystemIsReset();
-void SetStatusRed();
-void SetStatusAmber();
-void SetStatusGreen();
-void ClearStatusRed();
-void ClearStatusAmber();
-void ClearStatusGreen();
 int GetStatusRed();
 int GetStatusAmber();
 int GetStatusGreen();
-int LightsCycled();
+int LightsCycle(unsigned int state);
 
 #endif

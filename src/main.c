@@ -1,6 +1,7 @@
 #include <commonincs.h>
 #include <lightsframe.h>
 #include <lightsimages.h>
+#include <lightslogic.h>
 
 int main()
 {
@@ -25,7 +26,13 @@ int main()
 
     DrawSignalRefresh();
 
-    while(getchar() != 0x1b);
+    while(getchar() != 0x1b)
+    {
+        if(getchar() != 0x20)
+        {
+            /* Change status here. */
+        }
+    }
 
     endwin();
 
