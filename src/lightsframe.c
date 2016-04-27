@@ -1,11 +1,6 @@
 #include <commonincs.h>
 #include <lightsframe.h>
 
-#define LIGHTS_FRAME 37
-#define LEFT_MARGIN 35
-#define RIGHT_MARGIN 52
-#define PED_LEFT_MARGIN 15
-
 static const char* TOP_BOTTOM = "XXXXXXXXXXXXXXXXXXX";
 static const char* SIDES = "XX";
 
@@ -60,40 +55,6 @@ void DrawLightsFrame()
     mvprintw(35, LEFT_MARGIN, TOP_BOTTOM);
 
     attroff(COLOR_PAIR(1));
-}
-
-void DrawSignalLights()
-{
-    const char* LIGHTS_SPECULAR = "***************";
-    unsigned int idx;
-
-    attron(COLOR_PAIR(2));
-
-    for(idx = 6; idx < 15; idx++)
-    {
-        mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR);
-    }
-
-    attroff(COLOR_PAIR(2));
-
-    attron(COLOR_PAIR(1));
-
-    for(idx = 16; idx < 25; idx++)
-    {
-        mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR);
-    }
-
-    attroff(COLOR_PAIR(1));
-
-    attron(COLOR_PAIR(3));
-
-    for(idx = 26; idx < 35; idx++)
-    {
-        mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR);
-    }
-
-    attroff(COLOR_PAIR(3));
-
 }
 
 void DrawPedestrianLightsFrame()
