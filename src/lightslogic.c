@@ -79,19 +79,20 @@ int LightsCycle(unsigned int state)
 
             break;
         case 1:
-            ClearStatusAmber();
-            ClearStatusRed();
-
-            SetStatusGreen();
-
-            break;
-        case 2:
             ClearStatusGreen();
             ClearStatusRed();
 
             SetStatusAmber();
 
             break;
+        case 2:
+            ClearStatusAmber();
+            ClearStatusRed();
+
+            SetStatusGreen();
+
+            break;
+
         default:
             break;
     }
