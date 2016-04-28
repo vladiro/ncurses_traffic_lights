@@ -4,37 +4,46 @@
 static const char* HORIZONTAL_BAR = "oooooo";
 static const char* SIDE_BAR = "o";
 
-void DrawSignalLights()
+void DrawSignalLights(const unsigned int SETRED, const unsigned int SETAMBER, const unsigned int SETGREEN)
 {
     const char* LIGHTS_SPECULAR = "***************";
     unsigned int idx;
 
-    attron(COLOR_PAIR(2));
-
-    for(idx = 6; idx < 15; idx++)
+    if(SETRED)
     {
-        mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR);
+        attron(COLOR_PAIR(2));
+
+        for(idx = 6; idx < 15; idx++)
+        {
+            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR);
+        }
+
+        attroff(COLOR_PAIR(2));
     }
 
-    attroff(COLOR_PAIR(2));
-
-    attron(COLOR_PAIR(1));
-
-    for(idx = 16; idx < 25; idx++)
+    if(SETAMBER)
     {
-        mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR);
+        attron(COLOR_PAIR(1));
+
+        for(idx = 16; idx < 25; idx++)
+        {
+            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR);
+        }
+
+        attroff(COLOR_PAIR(1));
     }
 
-    attroff(COLOR_PAIR(1));
-
-    attron(COLOR_PAIR(3));
-
-    for(idx = 26; idx < 35; idx++)
+    if(SETGREEN)
     {
-        mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR);
-    }
+        attron(COLOR_PAIR(3));
 
-    attroff(COLOR_PAIR(3));
+        for(idx = 26; idx < 35; idx++)
+        {
+            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR);
+        }
+
+        attroff(COLOR_PAIR(3));
+    }
 }
 
 int DrawDigit(const unsigned int DIGIT, const unsigned int XDISP, const unsigned int YDISP)

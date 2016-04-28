@@ -12,7 +12,7 @@ int main()
     /* Main signal */
     DrawSignalInit();
     DrawLightsFrame();
-    DrawSignalLights();
+    DrawSignalLights(0, 0, 1);
 
     /* Pedestrian signal */
     DrawPedestrianLightsFrame();
