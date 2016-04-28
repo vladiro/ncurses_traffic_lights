@@ -1,15 +1,16 @@
 #include <commonincs.h>
 #include <lightsimages.h>
+#include <lightslogic.h>
 
 static const char* HORIZONTAL_BAR = "oooooo";
 static const char* SIDE_BAR = "o";
 
-void DrawSignalLights(const unsigned int SETRED, const unsigned int SETAMBER, const unsigned int SETGREEN)
+void DrawSignalLights()
 {
     const char* LIGHTS_SPECULAR = "***************";
     unsigned int idx;
 
-    if(SETRED)
+    if(GetStatusRed())
     {
         attron(COLOR_PAIR(2));
 
@@ -21,7 +22,7 @@ void DrawSignalLights(const unsigned int SETRED, const unsigned int SETAMBER, co
         attroff(COLOR_PAIR(2));
     }
 
-    if(SETAMBER)
+    if(GetStatusAmber())
     {
         attron(COLOR_PAIR(1));
 
@@ -33,7 +34,7 @@ void DrawSignalLights(const unsigned int SETRED, const unsigned int SETAMBER, co
         attroff(COLOR_PAIR(1));
     }
 
-    if(SETGREEN)
+    if(GetStatusGreen())
     {
         attron(COLOR_PAIR(3));
 
