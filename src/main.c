@@ -5,6 +5,8 @@
 
 int main()
 {
+    int lastChar, testCycle = 0;
+
     initscr();
     noecho();
     curs_set(FALSE);
@@ -27,12 +29,20 @@ int main()
 
     DrawSignalRefresh();
 
-    while(getchar() != 0x1b)
+    while(lastChar != 0x1b)
     {
-        if(getchar() != 0x20)
+        if(lastChar == 0x20)
         {
-            /* Change status here. */
+            testCycle++;
+
+            DrawLightsFrame();
+            LightsCycle(testCycle % 3);
+            DrawSignalLights();
+
+            DrawSignalRefresh();
         }
+
+        lastChar = getchar();
     }
 
     endwin();

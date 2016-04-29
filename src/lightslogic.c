@@ -3,7 +3,7 @@
 #define SHIFTLEFT(n) (1 << n)
 
 static unsigned char systemStatus;
-static unsigned char lightsCycled;
+/*static unsigned char lightsCycled;*/
 
 int SystemIsReset()
 {
