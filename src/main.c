@@ -29,23 +29,25 @@ int main()
 
     DrawSignalRefresh();
 
-    while(lastChar != 0x1b)
+    while(1)
     {
-        if(lastChar == 0x20)
+        switch(lastChar)
         {
-            testCycle++;
+            case 0x1b:
+                endwin();
+                return 0;
+            case 0x20:
+                testCycle++;
 
-            DrawLightsFrame();
-            LightsCycle(testCycle % 3);
-            DrawSignalLights();
+                DrawLightsFrame();
+                LightsCycle(testCycle % 3);
+                DrawSignalLights();
 
-            DrawSignalRefresh();
+                DrawSignalRefresh();
+            default:
+                lastChar = getchar();
         }
-
-        lastChar = getchar();
     }
 
-    endwin();
-
-    return 0;
+    return 1;
 }
