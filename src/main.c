@@ -1,3 +1,4 @@
+#include <time.h>
 #include <commonincs.h>
 #include <lightsframe.h>
 #include <lightsimages.h>
@@ -5,7 +6,9 @@
 
 int main()
 {
-    int lastChar, testCycle = 0;
+    int lastChar, loopItr = 0, testCycle = 0;
+    time_t start, now;
+    double secs = 0.0;
 
     initscr();
     noecho();
@@ -29,25 +32,36 @@ int main()
 
     DrawSignalRefresh();
 
+    start = now = time(NULL);
+
     while(1)
     {
-        switch(lastChar)
+
+        /*if(lastChar == 0x1b)
+            break;*/
+
+        secs = difftime(now, start);
+
+        if(secs > 1.0)
         {
-            case 0x1b:
-                endwin();
-                return 0;
-            case 0x20:
-                testCycle++;
+            loopItr++;
+            testCycle = loopItr % 3;
 
-                DrawLightsFrame();
-                LightsCycle(testCycle % 3);
-                DrawSignalLights();
+            DrawLightsFrame();
+            LightsCycle(testCycle);
+            DrawSignalLights();
 
-                DrawSignalRefresh();
-            default:
-                lastChar = getchar();
+            DrawSignalRefresh();
+
+            start = now;
         }
+
+        /*lastChar = getchar();*/
+
+        now = time(NULL);
     }
 
-    return 1;
+    endwin();
+
+    return 0;
 }
