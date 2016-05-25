@@ -34,11 +34,13 @@ int main()
 
     start = now = time(NULL);
 
+    nodelay(stdscr, true);
+
     while(1)
     {
 
-        /*if(lastChar == 0x1b)
-            break;*/
+        if(lastChar == 0x1b)
+            break;
 
         secs = difftime(now, start);
 
@@ -56,7 +58,7 @@ int main()
             start = now;
         }
 
-        /*lastChar = getchar();*/
+        lastChar = getch();
 
         now = time(NULL);
     }
