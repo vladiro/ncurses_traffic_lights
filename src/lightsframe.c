@@ -9,17 +9,14 @@ static const char* PEDESTRIAN_SIDE = "XX";
 
 void DrawSignalInit()
 {
-    mvprintw(1, 20, "Traffic Signals Using NCurses");
-    mvprintw(3, 20, "Esc to quit.");
+    mvprintw(1, 14, "Traffic Signals Using NCurses");
+    mvprintw(3, 14, "Esc to quit.");
 
     start_color();
 
     init_pair(1, COLOR_BLACK, COLOR_YELLOW);
     init_pair(2, COLOR_BLACK, COLOR_RED);
     init_pair(3, COLOR_BLACK, COLOR_GREEN);
-
-    /* For debug purposes.
-    init_pair(4, COLOR_BLACK, COLOR_BLUE); */
 }
 
 void DrawLightsFrame()

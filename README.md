@@ -1,4 +1,4 @@
-# NCurses Traffic Lights
+# Traffic Lights (for Linux using ncurses)
 
 ## Introduction
 

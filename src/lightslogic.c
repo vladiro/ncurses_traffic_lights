@@ -72,26 +72,23 @@ int LightsCycle(unsigned int state)
     switch(state)
     {
         case 0:
+            SetStatusRed();
             ClearStatusAmber();
             ClearStatusGreen();
-
-            SetStatusRed();
 
             break;
         case 1:
-            ClearStatusGreen();
-
-            SetStatusAmber();
-
-            break;
-        case 2:
-            ClearStatusAmber();
             ClearStatusRed();
-
+            ClearStatusAmber();
             SetStatusGreen();
 
             break;
+        case 2:
+            ClearStatusRed();
+            SetStatusAmber();
+            ClearStatusGreen();
 
+            break;
         default:
             break;
     }
