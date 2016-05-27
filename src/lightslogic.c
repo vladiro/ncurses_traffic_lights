@@ -80,7 +80,6 @@ int LightsCycle(unsigned int state)
             break;
         case 1:
             ClearStatusGreen();
-            ClearStatusRed();
 
             SetStatusAmber();
 
