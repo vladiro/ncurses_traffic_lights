@@ -7,7 +7,8 @@ static const char* SIDE_BAR = "o";
 
 void DrawSignalLights()
 {
-    const char* LIGHTS_SPECULAR = "***************";
+    const char* LIGHTS_SPECULAR_ON = "***************";
+    const char* LIGHTS_SPECULAR_OFF = "               ";
     unsigned int idx;
 
     if(GetStatusRed())
@@ -16,10 +17,17 @@ void DrawSignalLights()
 
         for(idx = 6; idx < 15; idx++)
         {
-            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR);
+            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR_ON);
         }
 
         attroff(COLOR_PAIR(2));
+    }
+    else
+    {
+        for(idx = 6; idx < 15; idx++)
+        {
+            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR_OFF);
+        }
     }
 
     if(GetStatusAmber())
@@ -28,10 +36,17 @@ void DrawSignalLights()
 
         for(idx = 16; idx < 25; idx++)
         {
-            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR);
+            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR_ON);
         }
 
         attroff(COLOR_PAIR(1));
+    }
+    else
+    {
+        for(idx = 16; idx < 25; idx++)
+        {
+            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR_OFF);
+        }
     }
 
     if(GetStatusGreen())
@@ -40,10 +55,17 @@ void DrawSignalLights()
 
         for(idx = 26; idx < 35; idx++)
         {
-            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR);
+            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR_ON);
         }
 
         attroff(COLOR_PAIR(3));
+    }
+    else
+    {
+        for(idx = 26; idx < 35; idx++)
+        {
+            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR_OFF);
+        }
     }
 }
 
