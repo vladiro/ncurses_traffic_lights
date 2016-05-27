@@ -1,8 +1,73 @@
 #include <commonincs.h>
 #include <lightsimages.h>
+#include <lightslogic.h>
 
 static const char* HORIZONTAL_BAR = "oooooo";
 static const char* SIDE_BAR = "o";
+
+void DrawSignalLights()
+{
+    const char* LIGHTS_SPECULAR_ON = "***************";
+    const char* LIGHTS_SPECULAR_OFF = "               ";
+    unsigned int idx;
+
+    if(GetStatusRed())
+    {
+        attron(COLOR_PAIR(2));
+
+        for(idx = 6; idx < 15; idx++)
+        {
+            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR_ON);
+        }
+
+        attroff(COLOR_PAIR(2));
+    }
+    else
+    {
+        for(idx = 6; idx < 15; idx++)
+        {
+            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR_OFF);
+        }
+    }
+
+    if(GetStatusAmber())
+    {
+        attron(COLOR_PAIR(1));
+
+        for(idx = 16; idx < 25; idx++)
+        {
+            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR_ON);
+        }
+
+        attroff(COLOR_PAIR(1));
+    }
+    else
+    {
+        for(idx = 16; idx < 25; idx++)
+        {
+            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR_OFF);
+        }
+    }
+
+    if(GetStatusGreen())
+    {
+        attron(COLOR_PAIR(3));
+
+        for(idx = 26; idx < 35; idx++)
+        {
+            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR_ON);
+        }
+
+        attroff(COLOR_PAIR(3));
+    }
+    else
+    {
+        for(idx = 26; idx < 35; idx++)
+        {
+            mvprintw(idx, LIGHTS_FRAME, LIGHTS_SPECULAR_OFF);
+        }
+    }
+}
 
 int DrawDigit(const unsigned int DIGIT, const unsigned int XDISP, const unsigned int YDISP)
 {
@@ -223,13 +288,4 @@ void DrawPedestrianSignal(unsigned int SIGNAL, const unsigned int XDISP, const u
         attroff(COLOR_PAIR(2));
     else if(SIGNAL == 1)
         attroff(COLOR_PAIR(3));
-}
-
-void DrawWalkingMan(const unsigned int XDISP, const unsigned int YDISP)
-{
-    attron(COLOR_PAIR(3));
-
-
-
-    attroff(COLOR_PAIR(3));
 }
