@@ -1,6 +1,5 @@
-#include <lightslogic.h>
-
-#define SHIFTLEFT(n) (1 << n)
+#include <commonincs.h>
+#include <mainsignallogic.h>
 
 static unsigned char systemStatus;
 /*static unsigned char lightsCycled;*/

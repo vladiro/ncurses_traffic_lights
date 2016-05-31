@@ -2,7 +2,7 @@
 #include <commonincs.h>
 #include <lightsframe.h>
 #include <lightsimages.h>
-#include <lightslogic.h>
+#include <mainsignallogic.h>
 
 int main()
 {

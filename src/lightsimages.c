@@ -1,6 +1,6 @@
 #include <commonincs.h>
 #include <lightsimages.h>
-#include <lightslogic.h>
+#include <mainsignallogic.h>
 
 static const char* HORIZONTAL_BAR = "oooooo";
 static const char* SIDE_BAR = "o";

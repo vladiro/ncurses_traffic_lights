@@ -5,6 +5,8 @@
 #include <ncurses.h>
 #include <unistd.h>
 
+#define SHIFTLEFT(n) (1 << n)
+
 #define LIGHTS_FRAME 37
 #define LEFT_MARGIN 35
 #define RIGHT_MARGIN 52
