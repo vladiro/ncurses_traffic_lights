@@ -1,16 +1,7 @@
 #include <commonincs.h>
 #include <mainsignallogic.h>
 
-static unsigned char systemStatus;
-/*static unsigned char lightsCycled;*/
-
-int SystemIsReset()
-{
-    if(!systemStatus)
-        return 1;
-
-    return 0;
-}
+static unsigned char systemStatus = (char)0;
 
 static void SetStatusRed()
 {
