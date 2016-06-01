@@ -3,19 +3,58 @@
 
 static unsigned char pedestrianStatus = (char)0;
 
-static void PedestrianSetStatusRed()
+static void SetPedestrianStatusRed()
 {
-
+    pedestrianStatus |= SHIFTLEFT(2);
 }
 
-static void PedestrianSetStatusRedBlinking()
+static void SetPedestrianStatusRedBlinking()
 {
-
+    pedestrianStatus |= SHIFTLEFT(1);
 }
 
-static void PedestrianSetStatusGreen()
+static void SetPedestrianStatusGreen()
 {
+    pedestrianStatus |= SHIFTLEFT(0);
+}
 
+static void ClearPedestrianStatusRed()
+{
+    pedestrianStatus &= ~SHIFTLEFT(2);
+}
+
+static void ClearPedestrianStatusRedBlinking()
+{
+    pedestrianStatus &= ~SHIFTLEFT(1);
+}
+
+static void ClearPedestrianStatusGreen()
+{
+    pedestrianStatus &= ~SHIFTLEFT(0);
+}
+
+int GetPedestrianStatusRed()
+{
+    if(pedestrianStatus & SHIFTLEFT(2))
+        return 1;
+
+    return 0;
+}
+
+int GetPedestrianStatusRedBlinking()
+{
+    if(pedestrianStatus & SHIFTLEFT(1))
+        return 1;
+
+    return 0;
+}
+
+int GetPedestrianStatusGreen()
+{
+    if(pedestrianStatus & SHIFTLEFT(0))
+        return 1;
+
+    return 0;
 }
 
 void PedestrianLightsCycle(unsigned int state)
