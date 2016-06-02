@@ -59,5 +59,24 @@ int GetPedestrianStatusGreen()
 
 void PedestrianLightsCycle(unsigned int state)
 {
-
+    switch(state)
+    {
+        case 0:
+            SetPedestrianStatusRed();
+            ClearPedestrianStatusRedBlinking();
+            ClearPedestrianStatusGreen();
+            break;
+        case 1:
+            ClearPedestrianStatusRed();
+            SetPedestrianStatusRedBlinking();
+            ClearPedestrianStatusGreen();
+            break;
+        case 2:
+            ClearPedestrianStatusRed();
+            ClearPedestrianStatusRedBlinking();
+            SetPedestrianStatusGreen();
+            break;
+        default:
+            break;
+    }
 }
