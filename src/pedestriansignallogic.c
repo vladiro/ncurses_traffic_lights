@@ -62,9 +62,9 @@ void PedestrianLightsCycle(unsigned int state)
     switch(state)
     {
         case 0:
-            SetPedestrianStatusRed();
+            ClearPedestrianStatusRed();
             ClearPedestrianStatusRedBlinking();
-            ClearPedestrianStatusGreen();
+            SetPedestrianStatusGreen();
             break;
         case 1:
             ClearPedestrianStatusRed();
@@ -72,9 +72,9 @@ void PedestrianLightsCycle(unsigned int state)
             ClearPedestrianStatusGreen();
             break;
         case 2:
-            ClearPedestrianStatusRed();
+            SetPedestrianStatusRed();
             ClearPedestrianStatusRedBlinking();
-            SetPedestrianStatusGreen();
+            ClearPedestrianStatusGreen();
             break;
         default:
             break;

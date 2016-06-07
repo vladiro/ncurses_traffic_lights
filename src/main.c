@@ -40,7 +40,6 @@ int main()
 
     while(1)
     {
-
         if(lastChar == 0x1b)
             break;
 
