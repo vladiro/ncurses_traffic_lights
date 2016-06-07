@@ -2,7 +2,8 @@
 #include <commonincs.h>
 #include <lightsframe.h>
 #include <lightsimages.h>
-#include <lightslogic.h>
+#include <mainsignallogic.h>
+#include <pedestriansignallogic.h>
 
 int main()
 {
@@ -18,13 +19,14 @@ int main()
     DrawSignalInit();
     DrawLightsFrame();
     LightsCycle(0);
+    PedestrianLightsCycle(0);
     DrawSignalLights();
 
     /* Pedestrian signal */
     DrawPedestrianLightsFrame();
 
     /* Draw hand or running man */
-    DrawPedestrianSignal(1, 23, 17);
+    DrawPedestrianSignal(23, 17);
 
     /* Draw countdown digits. */
     DrawDigit(1, 19, 27);
@@ -38,7 +40,6 @@ int main()
 
     while(1)
     {
-
         if(lastChar == 0x1b)
             break;
 
@@ -51,7 +52,9 @@ int main()
 
             DrawLightsFrame();
             LightsCycle(testCycle);
+            PedestrianLightsCycle(testCycle);
             DrawSignalLights();
+            DrawPedestrianSignal(23, 17);
 
             DrawSignalRefresh();
 

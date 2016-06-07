@@ -1,17 +1,7 @@
-#include <lightslogic.h>
+#include <commonincs.h>
+#include <mainsignallogic.h>
 
-#define SHIFTLEFT(n) (1 << n)
-
-static unsigned char systemStatus;
-/*static unsigned char lightsCycled;*/
-
-int SystemIsReset()
-{
-    if(!systemStatus)
-        return 1;
-
-    return 0;
-}
+static unsigned char systemStatus = (char)0;
 
 static void SetStatusRed()
 {
@@ -75,19 +65,16 @@ int LightsCycle(unsigned int state)
             SetStatusRed();
             ClearStatusAmber();
             ClearStatusGreen();
-
             break;
         case 1:
             ClearStatusRed();
             ClearStatusAmber();
             SetStatusGreen();
-
             break;
         case 2:
             ClearStatusRed();
             SetStatusAmber();
             ClearStatusGreen();
-
             break;
         default:
             break;

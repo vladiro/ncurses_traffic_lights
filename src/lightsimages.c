@@ -1,6 +1,7 @@
 #include <commonincs.h>
 #include <lightsimages.h>
-#include <lightslogic.h>
+#include <mainsignallogic.h>
+#include <pedestriansignallogic.h>
 
 static const char* HORIZONTAL_BAR = "oooooo";
 static const char* SIDE_BAR = "o";
@@ -268,14 +269,14 @@ int DrawDigit(const unsigned int DIGIT, const unsigned int XDISP, const unsigned
     return rtn;
 }
 
-void DrawPedestrianSignal(unsigned int SIGNAL, const unsigned int XDISP, const unsigned int YDISP)
+void DrawPedestrianSignal(const unsigned int XDISP, const unsigned int YDISP)
 {
     unsigned int idx;
     const unsigned int UPPER_BOUND = 7;
 
-    if(SIGNAL == 0)
+    if(GetPedestrianStatusRed() || GetPedestrianStatusRedBlinking())
         attron(COLOR_PAIR(2)); /* Red. */
-    else if(SIGNAL == 1)
+    else if(GetPedestrianStatusGreen())
         attron(COLOR_PAIR(3)); /* Green */
 
     /* If green should be a walking man, and if red should be a hand. My art skill has made them blocks! :D */
@@ -284,8 +285,8 @@ void DrawPedestrianSignal(unsigned int SIGNAL, const unsigned int XDISP, const u
         mvprintw(YDISP + idx, XDISP, HORIZONTAL_BAR);
     }
 
-    if(SIGNAL == 0)
+    if(GetPedestrianStatusRed() || GetPedestrianStatusRedBlinking())
         attroff(COLOR_PAIR(2));
-    else if(SIGNAL == 1)
+    else if(GetPedestrianStatusGreen())
         attroff(COLOR_PAIR(3));
 }
