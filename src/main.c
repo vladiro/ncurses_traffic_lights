@@ -55,6 +55,7 @@ int main()
             LightsCycle(testCycle);
             PedestrianLightsCycle(testCycle);
             DrawSignalLights();
+            DrawPedestrianSignal(23, 17);
 
             DrawSignalRefresh();
 
