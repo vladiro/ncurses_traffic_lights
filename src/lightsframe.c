@@ -62,14 +62,14 @@ void DrawPedestrianLightsFrame()
 
     mvprintw(15, PED_LEFT_MARGIN, PEDESTRIAN_TOP_BOTTOM);
 
-    for(idx = 16; idx < 25; idx++)
+    for(idx = PED_SIGNAL_FRAME_LOWER_BOUND_ITERATOR; idx < PED_SIGNAL_FRAME_UPPER_BOUND_ITERATOR; idx++)
     {
         mvprintw(idx, PED_LEFT_MARGIN, PEDESTRIAN_SIDE);
     }
 
     mvprintw(25, PED_LEFT_MARGIN, PEDESTRIAN_TOP_BOTTOM);
 
-    for(idx = 26; idx < 35; idx++)
+    for(idx = PED_SIGNAL_FRAME_LOWER_BOUND_ITERATOR + PED_SIGNAL_FRAME_ITERATOR_DISPLACEMENT; idx < PED_SIGNAL_FRAME_UPPER_BOUND_ITERATOR + PED_SIGNAL_FRAME_ITERATOR_DISPLACEMENT; idx++)
     {
         mvprintw(idx, PED_LEFT_MARGIN, PEDESTRIAN_SIDE);
     }
