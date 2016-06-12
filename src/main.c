@@ -45,7 +45,7 @@ int main()
 
         secs = difftime(now, start);
 
-        if(secs > 1.0)
+        if(secs > 0.5)
         {
             loopItr++;
             testCycle = loopItr % 3;
