@@ -10,7 +10,7 @@ void DrawSignalLights()
 {
     const char* LIGHTS_SPECULAR_ON = "***************";
     const char* LIGHTS_SPECULAR_OFF = "               ";
-    unsigned int idx;
+    UINT idx;
 
     if(GetStatusRed())
     {
@@ -70,10 +70,10 @@ void DrawSignalLights()
     }
 }
 
-int DrawDigit(const unsigned int DIGIT, const unsigned int XDISP, const unsigned int YDISP)
+int DrawDigit(const UINT DIGIT, const UINT XDISP, const UINT YDISP)
 {
     int rtn;
-    unsigned int idx;
+    UINT idx;
 
     attron(COLOR_PAIR(2));
 
@@ -269,10 +269,10 @@ int DrawDigit(const unsigned int DIGIT, const unsigned int XDISP, const unsigned
     return rtn;
 }
 
-void DrawPedestrianSignal(const unsigned int XDISP, const unsigned int YDISP)
+void DrawPedestrianSignal(const UINT XDISP, const UINT YDISP)
 {
-    unsigned int idx;
-    const unsigned int UPPER_BOUND = 7;
+    UINT idx;
+    const UINT UPPER_BOUND = 7;
 
     if(GetPedestrianStatusRed() || GetPedestrianStatusRedBlinking())
         attron(COLOR_PAIR(2)); /* Red. */
