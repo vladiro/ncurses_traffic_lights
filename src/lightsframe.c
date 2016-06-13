@@ -21,7 +21,7 @@ void DrawSignalInit()
 
 void DrawLightsFrame()
 {
-    unsigned int idx;
+    UINT idx;
 
     attron(COLOR_PAIR(1));
 
@@ -56,7 +56,7 @@ void DrawLightsFrame()
 
 void DrawPedestrianLightsFrame()
 {
-    unsigned int idx;
+    UINT idx;
 
     attron(COLOR_PAIR(1));
 

@@ -2,7 +2,7 @@
 #define _SIGNAL_IMAGES_
 
 void DrawSignalLights();
-int DrawDigit(const unsigned int DIGIT, const unsigned int XDISP, const unsigned int YDISP);
-void DrawPedestrianSignal(const unsigned int XDISP, const unsigned int YDISP);
+int DrawDigit(const UINT DIGIT, const UINT XDISP, const UINT YDISP);
+void DrawPedestrianSignal(const UINT XDISP, const UINT YDISP);
 
 #endif

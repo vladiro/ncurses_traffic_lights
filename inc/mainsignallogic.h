@@ -5,6 +5,6 @@ int SystemIsReset();
 int GetStatusRed();
 int GetStatusAmber();
 int GetStatusGreen();
-int LightsCycle(unsigned int state);
+int LightsCycle(UINT state);
 
 #endif

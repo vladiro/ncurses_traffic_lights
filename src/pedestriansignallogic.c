@@ -57,7 +57,7 @@ int GetPedestrianStatusGreen()
     return 0;
 }
 
-void PedestrianLightsCycle(unsigned int state)
+void PedestrianLightsCycle(UINT state)
 {
     switch(state)
     {

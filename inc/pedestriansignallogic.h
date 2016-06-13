@@ -4,6 +4,6 @@
 int GetPedestrianStatusRed();
 int GetPedestrianStatusRedBlinking();
 int GetPedestrianStatusGreen();
-void PedestrianLightsCycle(unsigned int state);
+void PedestrianLightsCycle(UINT state);
 
 #endif

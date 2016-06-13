@@ -57,7 +57,7 @@ int GetStatusGreen()
     return 0;
 }
 
-int LightsCycle(unsigned int state)
+int LightsCycle(UINT state)
 {
     switch(state)
     {
