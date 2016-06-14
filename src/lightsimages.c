@@ -70,7 +70,7 @@ void DrawSignalLights()
     }
 }
 
-int DrawDigit(const UINT DIGIT, const UINT XDISP, const UINT YDISP)
+static int _DrawDigit(const UINT DIGIT, const UINT XDISP, const UINT YDISP)
 {
     int rtn;
     UINT idx;
@@ -267,6 +267,14 @@ int DrawDigit(const UINT DIGIT, const UINT XDISP, const UINT YDISP)
     attroff(COLOR_PAIR(2));
 
     return rtn;
+}
+
+int DrawSignalDigits(const UINT DIGIT1, const UINT XDISP1, const UINT YDISP1, const UINT DIGIT2, const UINT XDISP2, const UINT YDISP2)
+{
+    _DrawDigit(DIGIT1, XDISP1, YDISP1);
+    _DrawDigit(DIGIT2, XDISP2, YDISP2);
+
+    return DIGIT1 * 10 + DIGIT2;
 }
 
 void DrawPedestrianSignal(const UINT XDISP, const UINT YDISP)

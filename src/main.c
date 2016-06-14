@@ -29,8 +29,7 @@ int main()
     DrawPedestrianSignal(23, 17);
 
     /* Draw countdown digits. */
-    DrawDigit(1, 19, 27);
-    DrawDigit(9, 27, 27);
+    DrawSignalDigits(1, 19, 27, 9, 27, 27);
 
     DrawSignalRefresh();
 
