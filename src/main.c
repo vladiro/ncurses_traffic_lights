@@ -29,7 +29,7 @@ int main()
     DrawPedestrianSignal(23, 17);
 
     /* Draw countdown digits. */
-    DrawSignalDigits(1, 19, 27, 9, 27, 27);
+    DrawSignalDigits(2, 19, 27, 0, 27, 27);
 
     DrawSignalRefresh();
 
@@ -46,14 +46,30 @@ int main()
 
         if(secs > 0.5)
         {
-            loopItr++;
-            testCycle = loopItr % 3;
+            if(!GetStatusGreen())
+            {
+                loopItr++;
+                testCycle = loopItr % 3;
 
-            DrawLightsFrame();
-            LightsCycle(testCycle);
-            PedestrianLightsCycle(testCycle);
-            DrawSignalLights();
-            DrawPedestrianSignal(23, 17);
+                DrawLightsFrame();
+                LightsCycle(testCycle);
+                PedestrianLightsCycle(testCycle);
+                DrawSignalLights();
+                DrawPedestrianSignal(23, 17);
+                DrawSignalDigits(1, 19, 27, 9, 27, 27);
+            }
+            else
+            {
+                loopItr++;
+                testCycle = loopItr % 3;
+
+                DrawLightsFrame();
+                LightsCycle(testCycle);
+                PedestrianLightsCycle(testCycle);
+                DrawSignalLights();
+                DrawPedestrianSignal(23, 17);
+                DrawSignalDigits(2, 19, 27, 0, 27, 27);
+            }
 
             DrawSignalRefresh();
 
