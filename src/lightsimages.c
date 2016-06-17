@@ -6,6 +6,9 @@
 static const char* HORIZONTAL_BAR = "oooooo";
 static const char* SIDE_BAR = "o";
 
+static const char* BLANK_HORIZONTAL_BAR = "      ";
+static const char* BLANK_SIDE_BAR = " ";
+
 void DrawSignalLights()
 {
     const char* LIGHTS_SPECULAR_ON = "***************";
@@ -70,10 +73,35 @@ void DrawSignalLights()
     }
 }
 
+static void _BlankDigit(const UINT XDISP, const UINT YDISP)
+{
+    UINT idx;
+
+    mvprintw(YDISP, XDISP, BLANK_HORIZONTAL_BAR);
+
+    for(idx = 0; idx < 3; idx++)
+    {
+        mvprintw(YDISP + idx, XDISP, BLANK_SIDE_BAR);
+        mvprintw(YDISP + idx, XDISP + 5, BLANK_SIDE_BAR);
+    }
+
+    mvprintw(YDISP + idx, XDISP, BLANK_HORIZONTAL_BAR);
+
+    for(; idx < 6; idx++)
+    {
+        mvprintw(YDISP + idx, XDISP, BLANK_SIDE_BAR);
+        mvprintw(YDISP + idx, XDISP + 5, BLANK_SIDE_BAR);
+    }
+
+    mvprintw(YDISP + idx, XDISP, BLANK_HORIZONTAL_BAR);
+}
+
 static int _DrawDigit(const UINT DIGIT, const UINT XDISP, const UINT YDISP)
 {
     int rtn;
     UINT idx;
+
+    _BlankDigit(XDISP, YDISP);
 
     attron(COLOR_PAIR(2));
 
