@@ -57,6 +57,7 @@ int main()
                 DrawSignalLights();
                 DrawPedestrianSignal(23, 17);
                 DrawSignalDigits(1, 19, 27, 9, 27, 27);
+                BlankSignalDigits(19, 27, 27, 27);
             }
             else
             {

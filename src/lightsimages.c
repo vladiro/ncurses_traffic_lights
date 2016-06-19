@@ -305,6 +305,12 @@ int DrawSignalDigits(const UINT DIGIT1, const UINT XDISP1, const UINT YDISP1, co
     return DIGIT1 * 10 + DIGIT2;
 }
 
+void BlankSignalDigits(const UINT XDISP1, const UINT YDISP1, const UINT XDISP2, const UINT YDISP2)
+{
+    _BlankDigit(XDISP1, YDISP1);
+    _BlankDigit(XDISP2, YDISP2);
+}
+
 void DrawPedestrianSignal(const UINT XDISP, const UINT YDISP)
 {
     UINT idx;
